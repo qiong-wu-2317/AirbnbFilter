@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: AirBnBDataHandler.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: AirBnBDataHandler.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Airbnb Data Handler Module
  * @module AirBnBDataHandler
  */
@@ -42,9 +70,9 @@ const createComparator = (getValue) => (a, b) => getValue(a) - getValue(b);
 
 /**
  * Filters listings based on specified criteria
- * @param {Array<Object>} data - Array of listing objects
+ * @param {Array&lt;Object>} data - Array of listing objects
  * @param {FilterParameters} filters - Filter configuration object
- * @returns {Array<Object>} New array with filtered listings
+ * @returns {Array&lt;Object>} New array with filtered listings
  */
 const filterListings = (data, filters) => data.filter(listing => {
   const price = getNumber(listing, 'price');
@@ -52,9 +80,9 @@ const filterListings = (data, filters) => data.filter(listing => {
   const score = getNumber(listing, 'review_scores_rating');
 
   return (
-    (!filters.price_max || (price >= filters.price_min && price <= filters.price_max)) &&
-    (!filters.room_max || (bedrooms >= filters.room_min && bedrooms <= filters.room_max)) &&
-    (!filters.score_max || (score >= filters.score_min && score <= filters.score_max))
+    (!filters.price_max || (price >= filters.price_min &amp;&amp; price &lt;= filters.price_max)) &amp;&amp;
+    (!filters.room_max || (bedrooms >= filters.room_min &amp;&amp; bedrooms &lt;= filters.room_max)) &amp;&amp;
+    (!filters.score_max || (score >= filters.score_min &amp;&amp; score &lt;= filters.score_max))
   );
 });
 
@@ -69,7 +97,7 @@ const filterListings = (data, filters) => data.filter(listing => {
 
 /**
  * Calculates statistics for a set of listings
- * @param {Array<Object>} data - Array of listing objects
+ * @param {Array&lt;Object>} data - Array of listing objects
  * @returns {ListingStats} Calculated statistics object
  */
 const calculateStats = data => {
@@ -81,7 +109,7 @@ const calculateStats = data => {
     averagePrice: totalPrice / data.length,
     avgPricePerRoom: totalPrice / totalRooms,
     validListings: data.filter(item => 
-      typeof item.host_id === 'number' && item.host_id > 0
+      typeof item.host_id === 'number' &amp;&amp; item.host_id > 0
     ).length
   };
 };
@@ -97,8 +125,8 @@ const calculateStats = data => {
 
 /**
  * Ranks hosts by their number of listings
- * @param {Array<Object>} data - Array of listing objects
- * @returns {Array<HostRanking>} Sorted array of host rankings
+ * @param {Array&lt;Object>} data - Array of listing objects
+ * @returns {Array&lt;HostRanking>} Sorted array of host rankings
  */
 const rankHosts = data => Object.entries(
   data.reduce((acc, listing) => ({
@@ -117,13 +145,13 @@ const rankHosts = data => Object.entries(
  * @property {function(): AirBnBHandler} computeStats - Calculates statistics
  * @property {function(number): AirBnBHandler} rankHosts - Ranks top hosts
  * @property {function(string): AirBnBHandler} order - Sorts by property
- * @property {function(string): Promise<AirBnBHandler>} writeToFile - Exports to CSV
- * @property {function(): Array<Object>} getData - Returns current dataset
+ * @property {function(string): Promise&lt;AirBnBHandler>} writeToFile - Exports to CSV
+ * @property {function(): Array&lt;Object>} getData - Returns current dataset
  */
 
 /**
  * Creates a new Airbnb Data Handler instance
- * @param {Array<Object>} [initialData=[]] - Initial dataset
+ * @param {Array&lt;Object>} [initialData=[]] - Initial dataset
  * @returns {AirBnBHandler} Handler instance with chainable methods
  * @example
  * const handler = AirBnBDataHandler(data)
@@ -191,7 +219,7 @@ export const AirBnBDataHandler = (initialData = []) => {
     /**
      * Writes current dataset to CSV file
      * @param {string} outputFilePath - Path to output file
-     * @returns {Promise<AirBnBHandler>} Promise resolving to current handler
+     * @returns {Promise&lt;AirBnBHandler>} Promise resolving to current handler
      * @throws {Error} If file write operation fails
      */
     async writeToFile(outputFilePath) {
@@ -207,3 +235,26 @@ export const AirBnBDataHandler = (initialData = []) => {
 
   return handler;
 };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AirBnBDataHandler.html">AirBnBDataHandler</a></li><li><a href="module-AirBnBDataProcessor.html">AirBnBDataProcessor</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Mar 12 2025 07:48:24 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
