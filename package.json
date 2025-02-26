@@ -5,18 +5,20 @@
   "type": "module",
   "index": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node src/AirBnBDataProcessor.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "csv-stringify": "^6.5.2",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "prettier": "^3.5.2"
   },
   "devDependencies": {
     "d3-dsv": "^3.0.1",
-    "d3-fetch": "^3.0.1"
+    "d3-fetch": "^3.0.1",
+    "jsdoc": "^4.0.4"
   }
 }
