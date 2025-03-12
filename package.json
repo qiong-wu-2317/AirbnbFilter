@@ -8,7 +8,7 @@
     "start": "node src/AirBnBDataProcessor.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Qiong Wu",
   "license": "MIT",
   "dependencies": {
     "csv-stringify": "^6.5.2",
